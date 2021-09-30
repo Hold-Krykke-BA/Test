@@ -102,23 +102,32 @@ A good example is available [here](https://junit.org/junit5/docs/current/user-gu
 ### 3.2 Mocking frameworks
 > _Investigate mocking frameworks for your preferred language. Choose at least two frameworks, and answer the questions._
 
+For this comparison we chose [Mockito](https://site.mockito.org/) and [EasyMock](https://easymock.org/). We considered [JMockit](https://jmockit.github.io/changes.html) and [jMock](http://jmock.org/) but they have not seen any updates since 2019.
+
+Mockito actually [has their own article on this comparison](https://github.com/mockito/mockito/wiki/Mockito-vs-EasyMock) which is worth a read. It is however from 2014 so some things may have changed. Worth of notice is the second sentence, which states that Mockito actually started off as a fork of EasyMock.
 
 What are their similarities?
-- todo
+- Open-source
+- For Java
 
 What are their differences?
-- todo
+- Mockito is licensed under the MIT license, EasyMock under the Apache License.
+- Mockito is from ~2007, EasyMock from 2001.
 
 Which one would you prefer, if any, and why?
-- todo 
+- Mockito due to its larger usebase. At a glance its API looks cleaner and easier to use and is hailed as the superior option.
 
 
-```diff
-- TODO
-```
+
+_Honorable mention: [PowerMock](https://github.com/powermock/powermock) - the framework that allows you to unit test code normally regarded as untestable._
 
 
 ## Sources
 - https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations
 - https://junit.org/junit5/docs/current/user-guide/#migrating-from-junit4
 - https://junit.org/junit5/docs/current/user-guide/#writing-tests-assumptions
+- https://en.wikipedia.org/wiki/List_of_unit_testing_frameworks#Java
+
+### Unused sources that may be of interest
+- https://dzone.com/articles/best-java-unit-testing-frameworks
+- https://www.baeldung.com/mockito-vs-easymock-vs-jmockit
