@@ -2,7 +2,7 @@
 
 This assignment consists of sections 1-3 where section 2 should be written individually. The other two sections are written together.
 
-The solutions for each member can be found in the [PartTwo](/PartTwo) folder.
+The solutions for each member can be found in the [PartTwo](./PartTwo) folder.
 
 ## Part 1 - Reflections
 
