@@ -114,15 +114,17 @@ What are their similarities?
 What are their differences?
 - Mockito is licensed under the MIT license, EasyMock under the Apache License.
 - Mockito is from ~2007, EasyMock from 2001.
-- Mockito follows Given/When/Then, EasyMock follows Given/Expect/When/Then. 
+- Mockito follows Given/When/Then, EasyMock follows Given/Expect/When. 
+  - This is apparant in EasyMock code where you have to call `Replay()` after `Expect()`. 
+  - This is far from Arrange/Act/Assert of JUnit (and the likes).
+- Mockito has Hamcrest support out-of-the-box for easy integration with existing codebase.
+- If a method of a mocked class has unmocked return data, Mockito handles it by returning clean data (i.e., an empty list). EasyMock instead fails the test as it deems the mock incomplete due to missing data, e.g. a stub.
 
 Which one would you prefer, if any, and why?
-- Mockito due to its larger usebase. At a glance its API looks cleaner and easier to use. It seems to be hailed as the superior option.
-
+- Mockito due to its larger usebase. At a glance its API looks cleaner and easier to use. It seems to be hailed as the superior option. PowerMock has [a Mockito extension](https://github.com/powermock/powermock/wiki/Mockito) to combine their powers.
 
 
 _Honorable mention: [PowerMock](https://github.com/powermock/powermock) - the framework that allows you to unit test code normally regarded as untestable._
-
 
 ## Sources
 - https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations
