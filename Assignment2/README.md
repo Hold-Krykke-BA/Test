@@ -122,6 +122,8 @@ What are their differences?
 
 Which one would you prefer, if any, and why?
 - Mockito due to its larger usebase. At a glance its API looks cleaner and easier to use. It seems to be hailed as the superior option. PowerMock has [a Mockito extension](https://github.com/powermock/powermock/wiki/Mockito) to combine their powers.
+- I (Rúni) do however prefer the "whitelist" approach of EasyMock, requiring all elements of the mock to match up (i.e., be stubbed) before the test can pass.
+- Mockito was built because the team found EasyMock lacking (guess) - and has grown beyond the former. Use that!
 
 
 _Honorable mention: [PowerMock](https://github.com/powermock/powermock) - the framework that allows you to unit test code normally regarded as untestable._
@@ -131,6 +133,7 @@ _Honorable mention: [PowerMock](https://github.com/powermock/powermock) - the fr
 - https://junit.org/junit5/docs/current/user-guide/#migrating-from-junit4
 - https://junit.org/junit5/docs/current/user-guide/#writing-tests-assumptions
 - https://en.wikipedia.org/wiki/List_of_unit_testing_frameworks#Java
+- https://stackoverflow.com/questions/3127518/mockito-preferrable-over-easymock
 
 ### Unused sources that may be of interest
 - https://dzone.com/articles/best-java-unit-testing-frameworks
