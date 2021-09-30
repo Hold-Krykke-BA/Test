@@ -30,35 +30,58 @@ The solutions for each member can be found in the [PartTwo](/PartTwo) folder.
 ## Part 3 - Investigation
 
 ### 3.1 JUnit 5
+> _Investigate JUnit 5 (Jupiter). Explain the following, and how they are useful._
 
-@Tag
-- todo
+`@Tag`
+- Tag is an annotation that can be applied to both classes and methods to categorize them for the _discovery and execution_ part of the framework. This is useful for not only marking tests but also for filtering them for execution. You could configure JUnit to only run certain tests, [i.e. only tests marked with "acceptance"](https://junit.org/junit5/docs/current/user-guide/#running-tests-build-maven-filter-tags). 
+More details can be found in the user guide, such as [this section](https://junit.org/junit5/docs/current/user-guide/#running-tests-tags).
 
-@Disabled
-- todo
+@Tag supports [inheritance/extension for custom types](https://junit.org/junit5/docs/current/user-guide/#writing-tests-meta-annotations). 
 
-@RepeatedTest
-- todo
-
-@BeforeEach, @AfterEach
-- todo
-
-@BeforeAll, @AfterAll
-- todo
-
-@DisplayName
-- todo
-
-@Nested
-- todo
-
-assumeFalse, assumeTrue
-- todo
-
+**Example:**
+```java
+@Tag("fast")
+@Tag("model")
+class TaggingDemo {
+...
+}
+```
 
 ```diff
-- TODO, see https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations
+- TODO, actual example from IDE and output window effects
 ```
+
+
+`@Disabled`
+- In JUnit 4 this was known as _@Ignore_. This is an annotation for both classes and methods which mark them to be skipped for execution.
+This is useful for skipping tests that are not fixed now but will be in the future. If the test is no longer relevant it should be removed.
+
+**Example:**
+```java
+@Disabled("Disabled until bug #99 has been fixed")
+class DisabledClassDemo {
+...
+}
+```
+
+`@RepeatedTest`
+- This annotation marks a test (that you would normally mark with _@Test_)
+
+`@BeforeEach`, `@AfterEach`
+- todo
+
+`@BeforeAll`, `@AfterAll`
+- todo
+
+`@DisplayName`
+- todo
+
+`@Nested`
+- todo
+
+`assumeFalse`, `assumeTrue`
+- todo
+
 
 ### 3.2 Mocking frameworks
 > _Investigate mocking frameworks for your preferred language. Choose at least two frameworks, and answer the questions._
@@ -80,4 +103,5 @@ Which one would you prefer, if any, and why?
 
 
 ## Sources
-https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations
+- https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations
+- https://junit.org/junit5/docs/current/user-guide/#migrating-from-junit4
