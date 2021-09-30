@@ -25,7 +25,7 @@ The solution for sections 1 & 3 can be found in this document. The solutions for
 ## Part 2 - Two katas
 This part of the assignment was required to be completed individually. 
 
-The solutions for each member can be found in the [PartTwo](/PartTwo) folder.
+The solutions for each member can be found in the [PartTwo](./PartTwo) folder.
 
 ## Part 3 - Investigation
 
