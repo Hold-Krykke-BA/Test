@@ -25,3 +25,8 @@ Additional string testing that could have been done:
 ## 2.2 Bowling Game Kata
 > Complete the Bowling Game Kata using TDD.
 > The slides can be found here: http://butunclebob.com/files/downloads/Bowling%20Game%20Kata.ppt (Also in repo root)
+
+Completed as in slides.
+
+### Results
+![img.png](assets/img3.png)
