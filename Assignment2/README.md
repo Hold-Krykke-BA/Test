@@ -109,13 +109,15 @@ Mockito actually [has their own article on this comparison](https://github.com/m
 What are their similarities?
 - Open-source
 - For Java
+- Built with TDD and BDD in mind
 
 What are their differences?
 - Mockito is licensed under the MIT license, EasyMock under the Apache License.
 - Mockito is from ~2007, EasyMock from 2001.
+- Mockito follows Given/When/Then, EasyMock follows Given/Expect/When/Then. 
 
 Which one would you prefer, if any, and why?
-- Mockito due to its larger usebase. At a glance its API looks cleaner and easier to use and is hailed as the superior option.
+- Mockito due to its larger usebase. At a glance its API looks cleaner and easier to use. It seems to be hailed as the superior option.
 
 
 
