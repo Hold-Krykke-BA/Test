@@ -1,4 +1,4 @@
-package katas;
+package katas.one;
 
 import org.junit.jupiter.api.*;
 
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * Capitalize string
  * Lowercase string
  */
-@Tag("katas.StringUtil")
+@Tag("katas.one.StringUtil")
 class StringUtilTest {
 
     @Tag("Reverse")
@@ -47,7 +47,6 @@ class StringUtilTest {
             //Act
             String result = StringUtil.reverse(testParameter);
 
-
             //Assert
             assertEquals(expectedResult, result);
         }
@@ -64,7 +63,6 @@ class StringUtilTest {
             Exception exception = assertThrows(IllegalArgumentException.class, () ->
                     StringUtil.reverse(testParameter));
 
-
             //Assert
             assertEquals(expectedResult, exception.getMessage());
         }
@@ -79,12 +77,9 @@ class StringUtilTest {
             //Act
             String result = StringUtil.reverse(testParameter);
 
-
             //Assert
             assertEquals(expectedResult, result);
         }
-
-
     }
 
     @Nested
@@ -130,7 +125,6 @@ class StringUtilTest {
 
             Exception exception = assertThrows(IllegalArgumentException.class, () ->
                     StringUtil.capitalize(testParameter));
-
 
             //Assert
             assertEquals(expectedResult, exception.getMessage());
@@ -195,7 +189,6 @@ class StringUtilTest {
             Exception exception = assertThrows(IllegalArgumentException.class, () ->
                     StringUtil.lowercase(testParameter));
 
-
             //Assert
             assertEquals(expectedResult, exception.getMessage());
         }
@@ -213,7 +206,5 @@ class StringUtilTest {
             //Assert
             assertEquals(expectedResult, result);
         }
-
     }
-
 }

@@ -1,7 +1,4 @@
-package katas;
-
-import java.util.Locale;
-import java.util.stream.Collectors;
+package katas.one;
 
 public class StringUtil {
 
@@ -48,7 +45,7 @@ public class StringUtil {
             if (ch >= 'a' && ch <= 'z')
                 sb.append((char) (ch - diff));
             else
-                sb.append(ch);
+                sb.append(ch); //maybe too lenient
         }
         return sb.toString();
 
@@ -69,11 +66,10 @@ public class StringUtil {
     }
 
     /**
-     *
      * Converts the given input string to lowercase if within bounds a-zA-Z
      *
-     * @param input
-     * @return
+     * @param input string to lowercase
+     * @return the lwoercased string
      */
     public static String lowercase(String input) {
         if (input == null) throw new IllegalArgumentException("String \"input\" must not be null");
@@ -86,7 +82,7 @@ public class StringUtil {
             if (ch >= 'A' && ch <= 'Z')
                 sb.append((char) (ch + diff));
             else
-                sb.append(ch);
+                sb.append(ch); //maybe too lenient
         }
         return sb.toString();
     }
