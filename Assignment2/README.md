@@ -11,16 +11,25 @@ The solution for sections 1 & 3 can be found in this document. The solutions for
 ### 1.1 Computer Mouse
 > _Identify the types of testing you would perform on a computer mouse, to make sure that it is of the highest quality._
 
-```diff
-- TODO
-```
+* Stress click test for each button on the mouse (including clickable scroll)
+* Test of the USB connection
+* Test of correct cursor movement when the mouse is moved in all directions
+* Test of correct scroll functionality
+* Stress test of the scrollwheel in both directions
+* Test of multiple inputs at the same time (i.e. click and movement, scroll and movement, click on several buttons at the same time ect.)
 
 ### 1.2 Catastrophic failure
-> _Find a story where a software system defect had a bad outcome. Describe what happened. Can you identify a test that would have prevented it?_
+> _Find a story where a software system defect had a bad outcome. Describe what happened. Can you identify a test that would have prevented it?_   
 
-```diff
-- TODO
-```
+The Mars Orbiter that was lost due to a calculations in different units of measurement comes to mind ([from wikipedia](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#Cause_of_failure)):  
+  
+> * The Mars Climate Orbiter was a 638-kilogram robotic space probe launched by NASA on December 11, 1998 to study the Martian climate, Martian atmosphere, and surface changes and to act as the communications relay in the Mars Surveyor '98 program for Mars Polar Lander. However, on September 23, 1999, communication with the spacecraft was permanently lost as it went into orbital insertion. The spacecraft encountered Mars on a trajectory that brought it too close to the planet, and it was either destroyed in the atmosphere or escaped the planet's vicinity and entered an orbit around the Sun. An investigation attributed the failure to a measurement mismatch between two software systems: metric units by NASA and US Customary (imperial) units by spacecraft builder Lockheed Martin.
+> * On September 8, 1999, Trajectory Correction Maneuver-4 (TCM-4) was computed and then executed on September 15, 1999. It was intended to place the spacecraft at an optimal position for an orbital insertion maneuver that would bring the spacecraft around Mars at an altitude of 226 km on September 23, 1999. However, during the week between TCM-4 and the orbital insertion maneuver, the navigation team indicated the altitude may be much lower than intended at 150 to 170 km. Twenty-four hours prior to orbital insertion, calculations placed the orbiter at an altitude of 110 km; 80 km is the minimum altitude that Mars Climate Orbiter was thought to be capable of surviving during this maneuver. Post-failure calculations showed that the spacecraft was on a trajectory that would have taken the orbiter within 57 km of the surface, where the spacecraft likely skipped violently on the uppermost atmosphere and was either destroyed in the atmosphere or re-entered heliocentric space.
+> * The primary cause of this discrepancy was that one piece of ground software supplied by Lockheed Martin produced results in a United States customary unit, contrary to its Software Interface Specification (SIS), while a second system, supplied by NASA, expected those results to be in SI units, in accordance with the SIS. Specifically, software that calculated the total impulse produced by thruster firings produced results in pound-force seconds. The trajectory calculation software then used these results – expected to be in newton-seconds (incorrect by a factor of 4.45) – to update the predicted position of the spacecraft.
+> * Still, NASA does not place the responsibility on Lockheed for the mission loss; instead, various officials at NASA have stated that NASA itself was at fault for failing to make the appropriate checks and tests that would have caught the discrepancy.
+> * According to NASA, the cost of the mission was $327.6 million total for the orbiter and lander, comprising $193.1 million for spacecraft development, $91.7 million for launching it, and $42.8 million for mission operations.
+
+The mission failure could possibly have been entirely prevented if there had been implemented unit tests in the system supplied by NASA and an integration test to evaluate the compliance of the specified functional requirements in the system supplied by Lockheed. 
 
 ## Part 2 - Two katas
 This part of the assignment was required to be completed individually. 
@@ -134,6 +143,7 @@ _Honorable mention: [PowerMock](https://github.com/powermock/powermock) - the fr
 - https://junit.org/junit5/docs/current/user-guide/#writing-tests-assumptions
 - https://en.wikipedia.org/wiki/List_of_unit_testing_frameworks#Java
 - https://stackoverflow.com/questions/3127518/mockito-preferrable-over-easymock
+- https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#Cause_of_failure
 
 ### Unused sources that may be of interest
 - https://dzone.com/articles/best-java-unit-testing-frameworks
