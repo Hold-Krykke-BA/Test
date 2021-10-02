@@ -33,8 +33,11 @@ The mission failure could possibly have been entirely prevented if there had bee
 
 ## Part 2 - Two katas
 This part of the assignment was required to be completed individually. 
-
-The solutions for each member can be found in the [PartTwo](./PartTwo) folder.
+  
+| Made By   | String Utility | Bowling Game   |
+|--|:--:|:--:|
+| Rúni | [Class](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Runi/src/main/java/katas/one/StringUtil.java) & [Test](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Runi/src/test/java/katas/one/StringUtilTest.java) | [Class](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Runi/src/main/java/katas/two/Game.java) & [Test](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Runi/src/test/java/katas/two/BowlingGameTest.java) |
+| Camilla | [Class](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Camillas/src/main/java/StringUtility.java) & [Test](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Camillas/src/test/java/StringUtilityTest.java)| [Class](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Camillas/src/main/java/BowlingGame.java) & [Test](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Camillas/src/test/java/BowlingGameTest.java) |
 
 ## Part 3 - Investigation
 
