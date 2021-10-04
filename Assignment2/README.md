@@ -4,7 +4,7 @@
 - _[Rúni Vedel Niclasen - cph-rn118](https://github.com/Runi-VN)_
 - _[Camilla Jenny Valerius Staunstrup - cph-cs340](https://github.com/Castau)_
 
-[Assignment description](./assignment-02.pdf)
+## [Assignment description](./assignment-02.pdf)
 
 This assignment consists of sections 1-3 where section 2 should be written individually. The other two sections are written together.
 
