@@ -33,7 +33,11 @@ The Mars Orbiter that was lost due to a calculations in different units of measu
 > * Still, NASA does not place the responsibility on Lockheed for the mission loss; instead, various officials at NASA have stated that NASA itself was at fault for failing to make the appropriate checks and tests that would have caught the discrepancy.
 > * According to NASA, the cost of the mission was $327.6 million total for the orbiter and lander, comprising $193.1 million for spacecraft development, $91.7 million for launching it, and $42.8 million for mission operations.
 
-The mission failure could possibly have been entirely prevented if there had been implemented unit tests in the system supplied by NASA and an integration test to evaluate the compliance of the specified functional requirements in the system supplied by Lockheed. 
+The mission failure could possibly have been entirely prevented if the following had been implemented:
+* Integration test in the system supplied by NASA 
+  * Testing specifically for the compliance of the specified functional requirements regarding the units of measurement in the system supplied by Lockheed.
+* Unit testing in the system supplied by Lockheed
+  * Testing for the units of measurement according to the Software Interface Specification
 
 ## Part 2 - Two katas
 This part of the assignment was required to be completed individually. 
