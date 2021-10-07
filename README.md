@@ -8,3 +8,4 @@ Repo for shared test assignments
 
 ## Completed group assignments
 - [Assignment 2](/Assignment2)
+- [Assignment 3](/Assignment3)
