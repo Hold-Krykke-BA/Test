@@ -1,6 +1,10 @@
 # Test - Assignment 2
+  
+## Contributors
+- _[Rúni Vedel Niclasen - cph-rn118](https://github.com/Runi-VN)_
+- _[Camilla Jenny Valerius Staunstrup - cph-cs340](https://github.com/Castau)_
 
-[Assignment description](./assignment-02.pdf)
+## [Assignment description](./assignment-02.pdf)
 
 This assignment consists of sections 1-3 where section 2 should be written individually. The other two sections are written together.
 
@@ -11,21 +15,42 @@ The solution for sections 1 & 3 can be found in this document. The solutions for
 ### 1.1 Computer Mouse
 > _Identify the types of testing you would perform on a computer mouse, to make sure that it is of the highest quality._
 
-```diff
-- TODO
-```
+* Stress click test for each button on the mouse (including clickable scroll)
+* Test of the USB connection
+* Test of correct cursor movement when the mouse is moved in all directions
+* Test of correct scroll functionality
+* Stress test of the scrollwheel in both directions
+* Test of multiple inputs at the same time (i.e. click and movement, scroll and movement, click on several buttons at the same time ect.)
 
 ### 1.2 Catastrophic failure
-> _Find a story where a software system defect had a bad outcome. Describe what happened. Can you identify a test that would have prevented it?_
+> _Find a story where a software system defect had a bad outcome. Describe what happened. Can you identify a test that would have prevented it?_   
 
-```diff
-- TODO
-```
+The Mars Orbiter that was lost due to a calculations in different units of measurement comes to mind. The Mars Climate Orbiter was a space probe that was launched by NASA on December 11, 1998 to study Mars. On September 23, 1999, they completely lost communications with the probe. The probe was brought to close to Mars on it entry in Mars' orbit  and it was either destroyed or skipped Mars entirely and re-entered heliocentric space. 
+
+> * An investigation attributed the failure to a measurement mismatch between two software systems: metric units by NASA and imperial units by spacecraft builder Lockheed Martin.
+
+> * The primary cause of this discrepancy was that one piece of ground software supplied by Lockheed Martin produced results in imperial units, contrary to its Software Interface Specification, while a second system, supplied by NASA, expected those results to be in SI units, in accordance with the SIS. 
+
+> * Specifically, software that calculated the total impulse produced by thruster firings produced results in pound-force seconds. The trajectory calculation software then used these results – expected to be in newton-seconds (incorrect by a factor of 4.45) – to update the predicted position of the spacecraft.
+
+> * NASA has stated that NASA itself was at fault for failing to make the appropriate checks and tests that would have caught the discrepancy.  
+  
+([from wikipedia](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#Cause_of_failure))    
+   
+     
+The mission failure could possibly have been entirely prevented if the following had been implemented:
+* Integration test in the system supplied by NASA 
+  * Testing specifically for the compliance of the specified functional requirements regarding the units of measurement in the system supplied by Lockheed.
+* Unit testing in the system supplied by Lockheed
+  * Testing for the units of measurement according to the Software Interface Specification
 
 ## Part 2 - Two katas
 This part of the assignment was required to be completed individually. 
-
-The solutions for each member can be found in the [PartTwo](/PartTwo) folder.
+  
+| Made By   | String Utility | Bowling Game   |
+|--|:--:|:--:|
+| Rúni | [Class](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Runi/src/main/java/katas/one/StringUtil.java) & [Test](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Runi/src/test/java/katas/one/StringUtilTest.java) | [Class](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Runi/src/main/java/katas/two/Game.java) & [Test](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Runi/src/test/java/katas/two/BowlingGameTest.java) |
+| Camilla | [Class](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Camillas/src/main/java/StringUtility.java) & [Test](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Camillas/src/test/java/StringUtilityTest.java)| [Class](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Camillas/src/main/java/BowlingGame.java) & [Test](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment2/PartTwo/Camillas/src/test/java/BowlingGameTest.java) |
 
 ## Part 3 - Investigation
 
@@ -134,6 +159,7 @@ _Honorable mention: [PowerMock](https://github.com/powermock/powermock) - the fr
 - https://junit.org/junit5/docs/current/user-guide/#writing-tests-assumptions
 - https://en.wikipedia.org/wiki/List_of_unit_testing_frameworks#Java
 - https://stackoverflow.com/questions/3127518/mockito-preferrable-over-easymock
+- https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#Cause_of_failure
 
 ### Unused sources that may be of interest
 - https://dzone.com/articles/best-java-unit-testing-frameworks
