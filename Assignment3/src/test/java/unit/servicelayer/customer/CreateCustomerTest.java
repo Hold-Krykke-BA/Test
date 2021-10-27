@@ -1,6 +1,6 @@
 package unit.servicelayer.customer;
 
-import datalayer.customer.ICustomerStorage;
+import datalayer.customer.CustomerStorage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -22,12 +22,12 @@ public class CreateCustomerTest {
     private CustomerService customerService;
 
     // DOC (Depended-on Component)
-    private ICustomerStorage storageMock;
+    private CustomerStorage storageMock;
 
 
     @BeforeAll
     public void beforeAll(){
-        storageMock = mock(ICustomerStorage.class);
+        storageMock = mock(CustomerStorage.class);
         customerService = new CustomerServiceImpl(storageMock);
     }
 

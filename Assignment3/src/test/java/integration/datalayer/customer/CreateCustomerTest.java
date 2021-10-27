@@ -1,8 +1,8 @@
 package integration.datalayer.customer;
 
 import com.github.javafaker.Faker;
-import datalayer.customer.ICustomerStorage;
 import datalayer.customer.CustomerStorage;
+import datalayer.customer.CustomerStorageImpl;
 import dto.CustomerCreation;
 import integration.ContainerizedDbIntegrationTest;
 import org.junit.jupiter.api.BeforeAll;
@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("integration")
 class CreateCustomerTest extends ContainerizedDbIntegrationTest {
-    private ICustomerStorage customerStorage;
+    private CustomerStorage customerStorage;
 
     /* changed code */
 
@@ -25,7 +25,7 @@ class CreateCustomerTest extends ContainerizedDbIntegrationTest {
     public void Setup() throws SQLException {
         runMigration(2);
 
-        customerStorage = new CustomerStorage(getConnectionString(), "root", getDbPassword());
+        customerStorage = new CustomerStorageImpl(getConnectionString(), "root", getDbPassword());
 
         var numCustomers = customerStorage.getCustomers().size();
         if (numCustomers < 100) {

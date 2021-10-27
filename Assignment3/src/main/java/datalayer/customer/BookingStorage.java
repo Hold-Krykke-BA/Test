@@ -6,24 +6,10 @@ import dto.BookingCreation;
 import java.sql.SQLException;
 import java.util.Collection;
 
-public class BookingStorage implements IBookingStorage{
-    @Override
-    public int createBooking(BookingCreation bookingCreation) throws SQLException {
-        return 0;
-    }
+public interface BookingStorage {
+    public int createBooking(BookingCreation bookingCreation)throws SQLException;
+    public Collection<Booking> getBookingsForCustomer(int customerId) throws SQLException;
+    public Collection<Booking> getBookingsForEmployee(int employeeId)throws SQLException;
+    public Booking getBookingById(int bookingId) throws SQLException;
 
-    @Override
-    public Collection<Booking> getBookingsForCustomer(int customerId) throws SQLException {
-        return null;
-    }
-
-    @Override
-    public Collection<Booking> getBookingsForEmployee(int employeeId) throws SQLException {
-        return null;
-    }
-
-    @Override
-    public Booking getBookingById(int bookingId) throws SQLException {
-        return null;
-    }
 }
