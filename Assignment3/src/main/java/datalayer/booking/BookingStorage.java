@@ -1,4 +1,4 @@
-package datalayer.customer;
+package datalayer.booking;
 
 import dto.Booking;
 import dto.BookingCreation;
