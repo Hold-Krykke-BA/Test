@@ -2,7 +2,16 @@ package dto;
 
 public class Customer {
     private final int id;
-    private final String firstname, lastname;
+    private final String firstname;
+    private final String lastname;
+    private String phone = "";
+    
+    public Customer(int id, String firstname, String lastname, String phone) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phone = phone;
+    }
 
     public Customer(int id, String firstname, String lastname) {
         this.id = id;
@@ -20,5 +29,19 @@ public class Customer {
 
     public String getLastname() {
         return lastname;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", phonenumber='" + phone + '\'' +
+                '}';
     }
 }
