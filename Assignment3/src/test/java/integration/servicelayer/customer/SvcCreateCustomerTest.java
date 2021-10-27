@@ -1,7 +1,7 @@
 package integration.servicelayer.customer;
 
+import datalayer.customer.ICustomerStorage;
 import datalayer.customer.CustomerStorage;
-import datalayer.customer.CustomerStorageImpl;
 import integration.ContainerizedDbIntegrationTest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -19,12 +19,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class SvcCreateCustomerTest extends ContainerizedDbIntegrationTest {
 
     private CustomerService svc;
-    private CustomerStorage storage;
+    private ICustomerStorage storage;
 
     @BeforeAll
     public void setup() {
         runMigration(3);
-        storage = new CustomerStorageImpl(getConnectionString(),"root", getDbPassword());
+        storage = new CustomerStorage(getConnectionString(),"root", getDbPassword());
         svc = new CustomerServiceImpl(storage);
     }
 

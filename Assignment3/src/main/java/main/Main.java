@@ -1,7 +1,7 @@
 package main;
 
 import dto.Customer;
-import datalayer.customer.CustomerStorageImpl;
+import datalayer.customer.CustomerStorage;
 
 import java.sql.SQLException;
 
@@ -12,7 +12,7 @@ public class Main {
     private static final String pass = "schmeep7";
 
     public static void main(String[] args) throws SQLException {
-        CustomerStorageImpl storage = new CustomerStorageImpl(conStr, user, pass);
+        CustomerStorage storage = new CustomerStorage(conStr, user, pass);
 
         System.out.println("Got customers: ");
         for(Customer c : storage.getCustomers()) {

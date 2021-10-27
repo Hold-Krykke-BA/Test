@@ -1,6 +1,6 @@
 package servicelayer.customer;
 
-import datalayer.customer.CustomerStorage;
+import datalayer.customer.ICustomerStorage;
 import dto.Customer;
 import dto.CustomerCreation;
 
@@ -10,9 +10,9 @@ import java.util.Date;
 
 public class CustomerServiceImpl implements CustomerService {
 
-    private CustomerStorage customerStorage;
+    private ICustomerStorage customerStorage;
 
-    public CustomerServiceImpl(CustomerStorage customerStorage) {
+    public CustomerServiceImpl(ICustomerStorage customerStorage) {
         this.customerStorage = customerStorage;
     }
 
