@@ -31,6 +31,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public Collection<Customer> getAllCustomers() throws CustomerServiceException {
+        return null;
+    }
+
+    @Override
     public Collection<Customer> getCustomersByFirstName(String firstName) {
         return null;
     }
