@@ -4,6 +4,7 @@ import dto.Booking;
 import dto.BookingCreation;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class BookingStorageImpl implements BookingStorage {
@@ -42,16 +43,65 @@ public class BookingStorageImpl implements BookingStorage {
 
     @Override
     public Collection<Booking> getBookingsForCustomer(int customerId) throws SQLException {
-        return null;
+        var sql = "select ID, customerId, employeeId,date,start,end from Bookings where customerId= ?";
+        try (var con = getConnection();
+             var stmt = con.prepareStatement(sql)) {
+            stmt.setInt(1, customerId);
+            var results = new ArrayList<Booking>();
+            ResultSet resultSet = stmt.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("ID");
+                int employeeId = resultSet.getInt("employeeId");
+                String date = resultSet.getString("date");
+                String start = resultSet.getString("start");
+                String end = resultSet.getString("end");
+                Booking c = new Booking(id, customerId, employeeId, date, start, end);
+                results.add(c);
+            }
+            return results;
+        }
     }
 
     @Override
     public Collection<Booking> getBookingsForEmployee(int employeeId) throws SQLException {
-        return null;
+        var sql = "select ID, customerId, employeeId,date,start,end from Bookings where customerId= ?";
+        try (var con = getConnection();
+             var stmt = con.prepareStatement(sql)) {
+            stmt.setInt(1, employeeId);
+            var results = new ArrayList<Booking>();
+            ResultSet resultSet = stmt.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("ID");
+                int customerId = resultSet.getInt("customerId");
+                String date = resultSet.getString("date");
+                String start = resultSet.getString("start");
+                String end = resultSet.getString("end");
+                Booking c = new Booking(id, customerId, employeeId, date, start, end);
+                results.add(c);
+            }
+            return results;
+        }
     }
 
     @Override
-    public Booking getBookingById(int bookingId) throws SQLException {
-        return null;
+    public Booking getBookingById(int bookingId) throws SQLException{
+        var sql = "select * from Bookings where id = ?";
+        try (var con = getConnection();
+             var stmt = con.prepareStatement(sql)) {
+            stmt.setInt(1, bookingId);
+
+            try (var resultSet = stmt.executeQuery()) {
+                if (resultSet.next()){
+                    var id = resultSet.getInt("ID");
+                    var customerId = resultSet.getInt("customerId");
+                    var employeeId = resultSet.getInt("employeeId");
+                    var date = resultSet.getString("date");
+                    var start = resultSet.getString("start");
+                    var end = resultSet.getString("end");
+                    return new Booking(id, customerId, employeeId, date, start, end);
+                }
+                return null;
+            }
+        }
     }
 }
