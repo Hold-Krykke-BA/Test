@@ -5,6 +5,7 @@ create table Customers (
 	ID int not null auto_increment,
 	firstname varchar(255) not null,
 	lastname varchar(255),
+	birthdate date,
 	PRIMARY KEY (ID)
 );
 
@@ -12,6 +13,7 @@ create table Employees (
        ID int not null auto_increment,
        firstname varchar(255) not null,
        lastname varchar(255) not null,
+       birthdate date,
        PRIMARY KEY (ID)
  );
  
@@ -32,4 +34,4 @@ create table Employees (
 );
 
 ALTER TABLE `BookingSystem`.`Customers` 
-ADD COLUMN `phonenumber` VARCHAR(45) NULL AFTER `lastname`;
+ADD COLUMN `phonenumber` VARCHAR(45) NULL AFTER `birthdate`;

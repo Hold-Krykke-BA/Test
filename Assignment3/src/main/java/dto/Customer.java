@@ -1,22 +1,18 @@
 package dto;
 
+import java.util.Date;
+
 public class Customer {
     private final int id;
-    private final String firstname;
-    private final String lastname;
-    private String phone = "";
-    
-    public Customer(int id, String firstname, String lastname, String phone) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.phone = phone;
-    }
+    private final String firstname, lastname, phonenumber;
+    private final Date birthdate;
 
-    public Customer(int id, String firstname, String lastname) {
+    public Customer(int id, String firstname, String lastname, String phonenumber, Date birthday) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.phonenumber = phonenumber;
+        this.birthdate = birthday;
     }
 
     public int getId() {
@@ -31,8 +27,12 @@ public class Customer {
         return lastname;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public Date getBirthdate() {
+        return birthdate;
     }
 
     @Override
@@ -41,7 +41,8 @@ public class Customer {
                 "id=" + id +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", phonenumber='" + phone + '\'' +
+                ", phonenumber='" + phonenumber + '\'' +
+                ", birthday=" + birthdate +
                 '}';
     }
 }

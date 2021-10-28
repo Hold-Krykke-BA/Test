@@ -33,7 +33,9 @@ public class CustomerStorageImpl implements CustomerStorage {
                     var id = resultSet.getInt("ID");
                     var firstname = resultSet.getString("firstname");
                     var lastname = resultSet.getString("lastname");
-                    return new Customer(id, firstname, lastname);
+                    var phonenumber = resultSet.getString("phonenumber");
+                    var birthdate = resultSet.getDate("birthdate");
+                    return new Customer(id, firstname, lastname, phonenumber, birthdate);
                 }
                 return null;
             }
@@ -45,18 +47,17 @@ public class CustomerStorageImpl implements CustomerStorage {
              var stmt = con.createStatement()) {
             var results = new ArrayList<Customer>();
 
-            try (ResultSet resultSet = stmt.executeQuery("select ID, firstname, lastname from Customers")) {
+            ResultSet resultSet = stmt.executeQuery("select ID, firstname, lastname, birthdate, phonenumber from Customers");
 
-                while (resultSet.next()) {
-                    int id = resultSet.getInt("ID");
-                    String firstname = resultSet.getString("firstname");
-                    String lastname = resultSet.getString("lastname");
-
-                    Customer c = new Customer(id, firstname, lastname);
-                    results.add(c);
-                }
+            while (resultSet.next()) {
+                int id = resultSet.getInt("ID");
+                String firstname = resultSet.getString("firstname");
+                String lastname = resultSet.getString("lastname");
+                String phonenumber = resultSet.getString("phonenumber");
+                Date birthdate = resultSet.getDate("birthdate");
+                Customer c = new Customer(id, firstname, lastname, phonenumber, birthdate);
+                results.add(c);
             }
-
             return results;
         }
     }
