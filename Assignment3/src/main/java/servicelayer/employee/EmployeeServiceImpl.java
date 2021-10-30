@@ -3,6 +3,7 @@ package servicelayer.employee;
 import datalayer.employee.EmployeeStorage;
 import dto.Employee;
 import dto.EmployeeCreation;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.sql.SQLException;
 import java.util.Collection;
@@ -11,8 +12,8 @@ import java.util.Date;
 public class EmployeeServiceImpl implements EmployeeService{
     private EmployeeStorage employeeStorage;
 
-    public EmployeeServiceImpl(EmployeeStorage empstorage) {
-        this.employeeStorage = empstorage;
+    public EmployeeServiceImpl(EmployeeStorage employeestorage) {
+        this.employeeStorage = employeestorage;
     }
 
     @Override
@@ -35,11 +36,15 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Collection<Employee> getEmployeesByFirstname(String firstName) throws EmployeeServiceException {
-        return null;
+        throw new NotImplementedException("Method not implemented");
     }
 
     @Override
     public Collection<Employee> getAllEmployees() throws EmployeeServiceException {
-        return null;
+        try {
+            return employeeStorage.getEmployees();
+        } catch (SQLException e) {
+            throw new EmployeeServiceException(e.getMessage());
+        }
     }
 }
