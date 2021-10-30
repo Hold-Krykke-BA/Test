@@ -3,6 +3,7 @@ package servicelayer.customer;
 import datalayer.customer.CustomerStorage;
 import dto.Customer;
 import dto.CustomerCreation;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.sql.SQLException;
 import java.util.Collection;
@@ -32,11 +33,15 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Collection<Customer> getAllCustomers() throws CustomerServiceException {
-        return null;
+        try {
+            return customerStorage.getCustomers();
+        } catch (SQLException e) {
+            throw new CustomerServiceException(e.getMessage());
+        }
     }
 
     @Override
     public Collection<Customer> getCustomersByFirstName(String firstName) {
-        return null;
+        throw new NotImplementedException("Method not implemented");
     }
 }

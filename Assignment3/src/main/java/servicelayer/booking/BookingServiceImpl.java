@@ -4,6 +4,7 @@ import datalayer.booking.BookingStorage;
 import dto.Booking;
 import dto.BookingCreation;
 import dto.SmsMessage;
+import servicelayer.customer.CustomerServiceException;
 
 import java.sql.SQLException;
 import java.util.Collection;
@@ -21,7 +22,7 @@ public class BookingServiceImpl implements BookingService{
         try {
             return bookingStorage.createBooking(new BookingCreation(customerId, employeeId, date, start, end));
         } catch (SQLException e) {
-            throw new BookingServiceException("Booking not created");
+            throw new BookingServiceException(e.getMessage());
         }
     }
 
@@ -30,7 +31,7 @@ public class BookingServiceImpl implements BookingService{
         try {
             return bookingStorage.getBookingsForCustomer(customerId);
         } catch (SQLException e) {
-            throw new BookingServiceException("Could not return bookings for customer " + customerId);
+            throw new BookingServiceException(e.getMessage());
         }
     }
 
@@ -39,7 +40,7 @@ public class BookingServiceImpl implements BookingService{
         try {
             return bookingStorage.getBookingsForEmployee(employeeId);
         } catch (SQLException e) {
-            throw new BookingServiceException("Could not return bookings for employee " + employeeId);
+            throw new BookingServiceException(e.getMessage());
         }
     }
 
@@ -48,7 +49,7 @@ public class BookingServiceImpl implements BookingService{
         try {
             return bookingStorage.getBookingById(id);
         } catch (SQLException e) {
-            throw new BookingServiceException("Could not return booking " + id);
+            throw new BookingServiceException(e.getMessage());
         }
     }
 }
