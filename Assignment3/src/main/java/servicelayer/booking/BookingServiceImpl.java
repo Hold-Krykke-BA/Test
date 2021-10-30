@@ -4,7 +4,7 @@ import datalayer.booking.BookingStorage;
 import dto.Booking;
 import dto.BookingCreation;
 import dto.SmsMessage;
-import servicelayer.customer.CustomerServiceException;
+import servicelayer.notifications.SmsServiceImpl;
 
 import java.sql.SQLException;
 import java.util.Collection;
@@ -12,18 +12,20 @@ import java.util.Date;
 
 public class BookingServiceImpl implements BookingService{
     private BookingStorage bookingStorage;
+    private SmsServiceImpl smsService = new SmsServiceImpl();
 
     public BookingServiceImpl(BookingStorage bookingStorage) {
         this.bookingStorage = bookingStorage;
     }
 
-    @Override
-    public int createBooking(int customerId, int employeeId, Date date, String start, String end) throws BookingServiceException {
-        try {
-            return bookingStorage.createBooking(new BookingCreation(customerId, employeeId, date, start, end));
-        } catch (SQLException e) {
-            throw new BookingServiceException(e.getMessage());
-        }
+   @Override
+    public int createBooking(int customerId, int employeeId, Date date, String start, String end, SmsMessage sms) throws BookingServiceException {
+       try {
+           smsService.sendSms(sms);
+           return bookingStorage.createBooking(new BookingCreation(customerId, employeeId, date, start, end));
+       } catch (SQLException e) {
+           throw new BookingServiceException(e.getMessage());
+       }
     }
 
     @Override
