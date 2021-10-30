@@ -5,9 +5,9 @@ import java.util.Date;
 
 public class Booking {
     private final int id;
-    private final String date;
-    private final String start;
-    private final String end;
+    private final Date date;
+    private final Time start;
+    private final Time end;
     private final int customerId, employeeId;
 
 
@@ -23,7 +23,7 @@ public class Booking {
                 '}';
     }
 
-    public Booking(int id, int customerId, int employeeId, String date, String start, String end ) {
+    public Booking(int id, int customerId, int employeeId, Date date, Time start, Time end ) {
         this.id = id;
         this.customerId = customerId;
         this.employeeId = employeeId;
@@ -36,15 +36,15 @@ public class Booking {
         return id;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public String getStart() {
+    public Time getStart() {
         return start;
     }
 
-    public String getEnd() {
+    public Time getEnd() {
         return end;
     }
 

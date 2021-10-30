@@ -5,12 +5,12 @@ import dto.EmployeeCreation;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class EmployeeStorageImpl implements EmployeeStorage{
-    private String connectionString;
-    private String username, password;
+    private final String connectionString;
+    private final String username;
+    private final String password;
 
     public EmployeeStorageImpl(String conStr, String user, String pass){
         connectionString = conStr;
@@ -23,50 +23,47 @@ public class EmployeeStorageImpl implements EmployeeStorage{
     }
 
     @Override
-    public Collection<Employee> getEmployeeWithId(int employeeId) throws SQLException {
-        var sql = "select ID, firstname, lastname from Employees where id = ?";
-        try (var con = getConnection();
-             var stmt = con.prepareStatement(sql)) {
+    public Employee getEmployeeWithId(int employeeId) throws SQLException {
+        String sql = "select ID, firstname, lastname from Employees where id = ?";
+        try (Connection con = getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setInt(1, employeeId);
-            var results = new ArrayList<Employee>();
 
-            try (var resultSet = stmt.executeQuery()) {
+            try (ResultSet resultSet = stmt.executeQuery()) {
                 if (resultSet.next()){
-                    var id = resultSet.getInt("ID");
-                    var firstname = resultSet.getString("firstname");
-                    var lastname = resultSet.getString("lastname");
-                    Employee emp = new Employee(id, firstname, lastname);
-                    results.add(emp);
+                    int id = resultSet.getInt("ID");
+                    String firstname = resultSet.getString("firstname");
+                    String lastname = resultSet.getString("lastname");
+                    return new Employee(id, firstname, lastname);
                 }
-                return results;
+                return null;
             }
         }
     }
 
     @Override
     public int createEmployee(EmployeeCreation employeeCreation) throws SQLException {
-        var sql = "insert into Employees(firstname, lastname) values (?, ?)";
-        try (var con = getConnection();
-             var stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        String sql = "insert into Employees(firstname, lastname) values (?, ?)";
+        try (Connection con = getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, employeeCreation.getFirstname());
             stmt.setString(2, employeeCreation.getLastname());
-
             stmt.executeUpdate();
 
             // get the newly created id
-            try (var resultSet = stmt.getGeneratedKeys()) {
+            try (ResultSet resultSet = stmt.getGeneratedKeys()) {
                 resultSet.next();
-                int newId = resultSet.getInt(1);
-                return newId;
+                int createdId = resultSet.getInt(1);
+                return createdId;
             }
         }
     }
 
     @Override
     public List<Employee> getEmployees() throws SQLException {
-        try (var con = getConnection();
-             var stmt = con.createStatement()) {
-            var results = new ArrayList<Employee>();
+        try (Connection con = getConnection();
+             Statement stmt = con.createStatement()) {
+            ArrayList results = new ArrayList<Employee>();
 
             try (ResultSet resultSet = stmt.executeQuery("select ID, firstname, lastname from Employees")) {
 
