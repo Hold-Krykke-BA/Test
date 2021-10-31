@@ -24,7 +24,7 @@ public class CustomerStorageImpl implements CustomerStorage {
 
     @Override
     public Customer getCustomerWithId(int customerId) throws SQLException {
-        String sql = "select ID, firstname, lastname, birthdate from Customers where id = ?";
+        String sql = "select ID, firstname, lastname, phonenumber, birthdate from Customers where id = ?";
         try (Connection con = getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setInt(1, customerId);

@@ -19,8 +19,6 @@ import org.junit.jupiter.api.TestInstance;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Date;
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -45,23 +43,23 @@ class BookingIntegrationTest extends ContainerizedDbIntegrationTest {
             addFakeCustomers(5 - numCustomers);
         }
         int numEmployees = employeeStorage.getEmployees().size();
-        if (numCustomers < 5) {
+        if (numEmployees < 5) {
             addFakeEmployees(5 - numEmployees);
         }
     }
     private void addFakeCustomers(int numCustomers) throws SQLException {
         Faker faker = new Faker();
         for (int i = 0; i < numCustomers; i++) {
-            CustomerCreation c = new CustomerCreation(faker.name().firstName(), faker.name().lastName(), faker.phoneNumber().subscriberNumber(8), faker.date().birthday());
-            customerStorage.createCustomer(c);
+            CustomerCreation creation = new CustomerCreation(faker.name().firstName(), faker.name().lastName(), faker.phoneNumber().subscriberNumber(8), faker.date().birthday());
+            customerStorage.createCustomer(creation);
         }
     }
 
     private void addFakeEmployees(int numEmployees) throws SQLException {
         Faker faker = new Faker();
         for (int i = 0; i < numEmployees; i++) {
-            EmployeeCreation e = new EmployeeCreation(faker.name().firstName(), faker.name().lastName());
-            employeeStorage.createEmployee(e);
+            EmployeeCreation creation = new EmployeeCreation(faker.name().firstName(), faker.name().lastName());
+            employeeStorage.createEmployee(creation);
         }
     }
 
@@ -83,11 +81,9 @@ class BookingIntegrationTest extends ContainerizedDbIntegrationTest {
 
     @Test
     public void mustReturnLatestId() throws SQLException {
-        // Arrange
         // Act
         int id1 =  bookingStorage.createBooking(new BookingCreation(1, 1, new java.sql.Date(date.getTime()), "15:00", "21:00"));
         int id2 =  bookingStorage.createBooking(new BookingCreation(1, 1, new java.sql.Date(date.getTime()), "15:00", "21:00"));
-
         // Assert
         assertEquals(1, id2 - id1);
     }

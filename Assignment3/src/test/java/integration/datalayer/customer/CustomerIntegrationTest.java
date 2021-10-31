@@ -22,35 +22,22 @@ class CustomerIntegrationTest extends ContainerizedDbIntegrationTest {
     private CustomerStorage customerStorage;
 
     @BeforeAll
-    public void Setup() throws SQLException {
+    public void Setup() {
         runMigration(4);
         customerStorage = new CustomerStorageImpl(getConnectionString(), getDbUser(), getDbPassword());
-
-        int numCustomers = customerStorage.getCustomers().size();
-        if (numCustomers < 100) {
-            addFakeCustomers(100 - numCustomers);
-        }
-    }
-
-    private void addFakeCustomers(int numCustomers) throws SQLException {
-        Faker faker = new Faker();
-        for (int i = 0; i < numCustomers; i++) {
-            CustomerCreation c = new CustomerCreation(faker.name().firstName(), faker.name().lastName(), faker.phoneNumber().subscriberNumber(8), faker.date().birthday());
-            customerStorage.createCustomer(c);
-        }
     }
 
     @Test
     public void mustSaveCustomerInDatabaseWhenCallingCreateCustomer() throws SQLException {
         // Arrange
         // Act
-        customerStorage.createCustomer(new CustomerCreation("John","Carlssonn", "12345678", new Date()));
+        customerStorage.createCustomer(new CustomerCreation("Orla","Olsen", "12345678", new Date()));
         // Assert
         List<Customer> customers = customerStorage.getCustomers();
         assertTrue(
                 customers.stream().anyMatch(x ->
-                        x.getFirstname().equals("John") &&
-                        x.getLastname().equals("Carlssonn")));
+                        x.getFirstname().equals("Orla") &&
+                        x.getLastname().equals("Olsen")));
     }
 
     @Test
@@ -58,9 +45,8 @@ class CustomerIntegrationTest extends ContainerizedDbIntegrationTest {
         // Arrange
         Faker faker = new Faker();
         // Act
-        int id1 = customerStorage.createCustomer(new CustomerCreation("Anders", "Ankersen", faker.phoneNumber().phoneNumber(), faker.date().birthday()));
-        int id2 = customerStorage.createCustomer(new CustomerCreation("Børge", "Bentsen", faker.phoneNumber().phoneNumber(), faker.date().birthday()));
-
+        int id1 = customerStorage.createCustomer(new CustomerCreation("Anders", "Ankersen", faker.phoneNumber().subscriberNumber(8), faker.date().birthday()));
+        int id2 = customerStorage.createCustomer(new CustomerCreation("Børge", "Bentsen", faker.phoneNumber().subscriberNumber(8), faker.date().birthday()));
         // Assert
         assertEquals(1, id2 - id1);
     }
