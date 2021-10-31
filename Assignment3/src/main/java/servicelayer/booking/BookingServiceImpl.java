@@ -5,7 +5,6 @@ import dto.Booking;
 import dto.BookingCreation;
 import dto.SmsMessage;
 import servicelayer.notifications.SmsServiceImpl;
-
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Date;

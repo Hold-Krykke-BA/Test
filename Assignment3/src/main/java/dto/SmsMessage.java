@@ -3,9 +3,6 @@ package dto;
 import java.util.Objects;
 
 public class SmsMessage {
-    /**
-     * The recipient number including country code
-     */
     private final String recipient;
     private final String message;
 

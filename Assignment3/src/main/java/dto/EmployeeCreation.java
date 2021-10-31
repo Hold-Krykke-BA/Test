@@ -1,7 +1,5 @@
 package dto;
 
-import java.util.Date;
-
 public class EmployeeCreation {
     public final String firstname, lastname;
 

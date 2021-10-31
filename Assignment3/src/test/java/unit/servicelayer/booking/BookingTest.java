@@ -10,10 +10,8 @@ import org.junit.jupiter.api.TestInstance;
 import servicelayer.booking.BookingService;
 import servicelayer.booking.BookingServiceException;
 import servicelayer.booking.BookingServiceImpl;
-
 import java.sql.SQLException;
 import java.util.Date;
-
 import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.*;
 

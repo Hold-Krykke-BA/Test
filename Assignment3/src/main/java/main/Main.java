@@ -1,7 +1,6 @@
 package main;
 
 import com.github.javafaker.Faker;
-import datalayer.booking.BookingStorageImpl;
 import datalayer.employee.EmployeeStorageImpl;
 import datalayer.customer.CustomerStorageImpl;
 import dto.CustomerCreation;
@@ -16,9 +15,6 @@ public class Main {
     private static final String pass = "holdkrykke";
 
     public static void main(String[] args) throws SQLException {
-        CustomerStorageImpl customerStorage = new CustomerStorageImpl(conStr, user, pass);
-        EmployeeStorageImpl employeeStorage = new EmployeeStorageImpl(conStr, user, pass);
-        BookingStorageImpl bookingStorage = new BookingStorageImpl(conStr, user, pass);
         createFakeEmployees(10);
         createFakeCostumers(5);
     }

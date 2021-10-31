@@ -11,9 +11,7 @@ import org.junit.jupiter.api.TestInstance;
 import servicelayer.employee.EmployeeService;
 import servicelayer.employee.EmployeeServiceException;
 import servicelayer.employee.EmployeeServiceImpl;
-
 import java.sql.SQLException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

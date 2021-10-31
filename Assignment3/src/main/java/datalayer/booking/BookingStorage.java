@@ -2,7 +2,6 @@ package datalayer.booking;
 
 import dto.Booking;
 import dto.BookingCreation;
-
 import java.sql.SQLException;
 import java.util.Collection;
 

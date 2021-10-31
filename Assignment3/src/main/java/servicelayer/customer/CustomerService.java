@@ -1,7 +1,6 @@
 package servicelayer.customer;
 
 import dto.Customer;
-
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Date;

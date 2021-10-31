@@ -1,10 +1,7 @@
 package servicelayer.employee;
 
 import dto.Employee;
-
-import java.sql.SQLException;
 import java.util.Collection;
-import java.util.Date;
 
 public interface EmployeeService {
     int createEmployee(String firstName, String lastName) throws EmployeeServiceException;

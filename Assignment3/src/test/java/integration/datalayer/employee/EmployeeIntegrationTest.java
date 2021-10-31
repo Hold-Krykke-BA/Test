@@ -1,6 +1,5 @@
 package integration.datalayer.employee;
 
-import com.github.javafaker.Faker;
 import datalayer.employee.EmployeeStorage;
 import datalayer.employee.EmployeeStorageImpl;
 import dto.EmployeeCreation;
