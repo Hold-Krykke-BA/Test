@@ -2,8 +2,6 @@ package integration;
 
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.configuration.FluentConfiguration;
-import org.testcontainers.containers.MySQLContainer;
-import org.testcontainers.utility.DockerImageName;
 
 public class ContainerizedDbIntegrationTest {
 
@@ -11,22 +9,15 @@ public class ContainerizedDbIntegrationTest {
     private static final String PASSWORD = "holdkrykke";
     private static final String USER = "root";
 
-    public static MySQLContainer mysql;
-
-    static {
-         mysql = (MySQLContainer) new MySQLContainer(DockerImageName.parse("mysql"))
-                .withPassword(PASSWORD)
-                .withExposedPorts(PORT);
-         mysql.start();
+    protected String getDbUser() {
+        return USER;
     }
 
     protected String getDbPassword() {
         return PASSWORD;
     }
 
-    protected String getDbUrl(){
-        return "jdbc:mysql://"+mysql.getHost()+":"+mysql.getFirstMappedPort()+"/";
-    }
+    protected String getDbUrl(){ return "jdbc:mysql://127.0.0.1:" + PORT + "/";}
 
     protected String getDb() {
         return "BookingSystemTest";
@@ -41,12 +32,13 @@ public class ContainerizedDbIntegrationTest {
         String db = getDb();
         Flyway flyway = new Flyway(
                 new FluentConfiguration()
-                        .schemas(db)
                         .defaultSchema(db)
                         .createSchemas(true)
+                        .schemas(db)
                         .target(Double.toString(level))
-                        .dataSource(url, "root", PASSWORD)
-        );
+                        .dataSource(url, USER, PASSWORD));
+        flyway.clean();
+        flyway.repair();
         flyway.migrate();
     }
 

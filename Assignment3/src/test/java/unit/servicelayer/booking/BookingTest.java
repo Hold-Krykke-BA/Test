@@ -10,7 +10,6 @@ import org.junit.jupiter.api.TestInstance;
 import servicelayer.booking.BookingService;
 import servicelayer.booking.BookingServiceException;
 import servicelayer.booking.BookingServiceImpl;
-import servicelayer.customer.CustomerService;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -20,10 +19,9 @@ import static org.mockito.Mockito.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("unit")
-public class CreateBookingTest {
+public class BookingTest {
 
     private BookingService bookingService;
-    private CustomerService customerService;
     private BookingStorage storageMock;
     private Faker faker;
 
@@ -35,7 +33,7 @@ public class CreateBookingTest {
     }
 
     @Test
-    public void mustCallStorageWhenCreatingBooking() throws BookingServiceException, SQLException {
+    public void TestCallStorageWhenCreatingBooking() throws BookingServiceException, SQLException {
         // Arrange
         int employeeID = 1;
         int customerID = 5;

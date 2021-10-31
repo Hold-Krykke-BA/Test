@@ -3,54 +3,33 @@ package integration.datalayer.customer;
 import com.github.javafaker.Faker;
 import datalayer.customer.CustomerStorage;
 import datalayer.customer.CustomerStorageImpl;
+import dto.Customer;
 import dto.CustomerCreation;
 import integration.ContainerizedDbIntegrationTest;
-import org.flywaydb.core.Flyway;
-import org.flywaydb.core.api.configuration.FluentConfiguration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("integration")
-
-class CreateCustomerTest { //} extends ContainerizedDbIntegrationTest {
+class CustomerIntegrationTest extends ContainerizedDbIntegrationTest {
     private CustomerStorage customerStorage;
-
-    /* changed code */
 
     @BeforeAll
     public void Setup() throws SQLException {
-        var url = "jdbc:mysql://localhost:3307/";
-        var db = "BookingSystemTest";
+        runMigration(4);
+        customerStorage = new CustomerStorageImpl(getConnectionString(), getDbUser(), getDbPassword());
 
-        Flyway flyway = new Flyway(new FluentConfiguration()
-                .defaultSchema(db)
-                .createSchemas(true)
-                .schemas(db)
-                .target("4")
-                .dataSource(url, "root", "holdkrykke"));
-        flyway.migrate();
-        customerStorage = new CustomerStorageImpl(url+db, "root", "holdkrykke");
-
-        var numCustomers = customerStorage.getCustomers().size();
-        if (numCustomers < 5) {
-            addFakeCustomers(5 - numCustomers);
+        int numCustomers = customerStorage.getCustomers().size();
+        if (numCustomers < 100) {
+            addFakeCustomers(100 - numCustomers);
         }
-//        runMigration(2);
-//
-//        customerStorage = new CustomerStorageImpl(getConnectionString(), "root", getDbPassword());
-//
-//        var numCustomers = customerStorage.getCustomers().size();
-//        if (numCustomers < 100) {
-//            addFakeCustomers(100 - numCustomers);
-//        }
     }
 
     private void addFakeCustomers(int numCustomers) throws SQLException {
@@ -59,7 +38,6 @@ class CreateCustomerTest { //} extends ContainerizedDbIntegrationTest {
             CustomerCreation c = new CustomerCreation(faker.name().firstName(), faker.name().lastName(), faker.phoneNumber().subscriberNumber(8), faker.date().birthday());
             customerStorage.createCustomer(c);
         }
-
     }
 
     @Test
@@ -67,9 +45,8 @@ class CreateCustomerTest { //} extends ContainerizedDbIntegrationTest {
         // Arrange
         // Act
         customerStorage.createCustomer(new CustomerCreation("John","Carlssonn", "12345678", new Date()));
-
         // Assert
-        var customers = customerStorage.getCustomers();
+        List<Customer> customers = customerStorage.getCustomers();
         assertTrue(
                 customers.stream().anyMatch(x ->
                         x.getFirstname().equals("John") &&

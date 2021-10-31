@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("unit")
-public class CreateEmployeeTest {
+public class EmployeeTest {
     private Faker faker;
     private EmployeeService employeeService;
     private EmployeeStorage storageMock;
@@ -30,7 +30,7 @@ public class CreateEmployeeTest {
     }
 
     @Test
-    public void mustCallStorageWhenCreatingCustomer() throws SQLException, EmployeeServiceException {
+    public void TestCallStorageWhenCreatingCustomer() throws SQLException, EmployeeServiceException {
         // Arrange
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();

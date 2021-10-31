@@ -1,4 +1,5 @@
 DROP SCHEMA IF EXISTS BookingSystem;
+DROP SCHEMA IF EXISTS BookingSystemTest;
 CREATE SCHEMA IF NOT EXISTS BookingSystem;
 use BookingSystem;
 
@@ -11,10 +12,10 @@ create table Customers (
 );
 
 create table Employees (
-       ID int not null auto_increment,
-       firstname varchar(255) not null,
-       lastname varchar(255) not null,
-       PRIMARY KEY (ID)
+	ID int not null auto_increment,
+	firstname varchar(255) not null,
+	lastname varchar(255) not null,
+	PRIMARY KEY (ID)
  );
  
  create table Bookings (		
