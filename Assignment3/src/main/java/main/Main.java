@@ -1,7 +1,10 @@
 package main;
 
-import dto.Customer;
+import com.github.javafaker.Faker;
+import datalayer.booking.BookingStorageImpl;
+import datalayer.employee.EmployeeStorageImpl;
 import datalayer.customer.CustomerStorageImpl;
+import dto.EmployeeCreation;
 
 import java.sql.SQLException;
 
@@ -13,15 +16,19 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         CustomerStorageImpl storage = new CustomerStorageImpl(conStr, user, pass);
+        EmployeeStorageImpl eStorage = new EmployeeStorageImpl(conStr, user, pass);
+        BookingStorageImpl bStorage = new BookingStorageImpl(conStr, user, pass);
+        createFakeEmployees(10);
 
-        System.out.println("Got customers: ");
-        for(Customer c : storage.getCustomers()) {
-            System.out.println(toString(c));
+    }
+
+    public static void createFakeEmployees(int amount) throws SQLException {
+        EmployeeStorageImpl eStorage = new EmployeeStorageImpl(conStr, user, pass);
+        Faker faker = new Faker();
+        for (int i = 0; i < amount; i++) {
+            EmployeeCreation c = new EmployeeCreation(faker.name().firstName(), faker.name().lastName());
+            eStorage.createEmployee(c);
         }
-        System.out.println("The end.");
     }
 
-    public static String toString(Customer c) {
-        return "{" + c.getId() + ", " + c.getFirstname() + ", " + c.getLastname() + "}";
-    }
 }
