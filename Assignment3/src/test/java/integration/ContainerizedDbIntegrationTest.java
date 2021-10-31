@@ -7,8 +7,9 @@ import org.testcontainers.utility.DockerImageName;
 
 public class ContainerizedDbIntegrationTest {
 
-    private static final int PORT = 3306;
-    private static final String PASSWORD = "testuser1234";
+    private static final int PORT = 3307;
+    private static final String PASSWORD = "holdkrykke";
+    private static final String USER = "root";
 
     public static MySQLContainer mysql;
 
@@ -28,7 +29,7 @@ public class ContainerizedDbIntegrationTest {
     }
 
     protected String getDb() {
-        return "DemoApplicationTest";
+        return "BookingSystemTest";
     }
 
     protected String getConnectionString() {

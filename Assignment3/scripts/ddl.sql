@@ -1,3 +1,4 @@
+DROP SCHEMA IF EXISTS BookingSystem;
 CREATE SCHEMA IF NOT EXISTS BookingSystem;
 use BookingSystem;
 

@@ -64,11 +64,13 @@ public class CustomerStorageImpl implements CustomerStorage {
     }
 
     public int createCustomer(CustomerCreation customerToCreate) throws SQLException {
-        String sql = "insert into Customers(firstname, lastname) values (?, ?)";
+        String sql = "insert into Customers(firstname, lastname, birthdate, phonenumber) values (?, ?, ? , ?)";
         try (Connection con = getConnection();
             PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, customerToCreate.getFirstname());
             stmt.setString(2, customerToCreate.getLastname());
+            stmt.setDate(3, new java.sql.Date(customerToCreate.getBirthday().getTime()));
+            stmt.setString(4, customerToCreate.getPhoneNumber());
             stmt.executeUpdate();
 
             // get the newly created id

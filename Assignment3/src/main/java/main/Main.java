@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import datalayer.booking.BookingStorageImpl;
 import datalayer.employee.EmployeeStorageImpl;
 import datalayer.customer.CustomerStorageImpl;
+import dto.CustomerCreation;
 import dto.EmployeeCreation;
 
 import java.sql.SQLException;
@@ -15,19 +16,27 @@ public class Main {
     private static final String pass = "holdkrykke";
 
     public static void main(String[] args) throws SQLException {
-        CustomerStorageImpl storage = new CustomerStorageImpl(conStr, user, pass);
-        EmployeeStorageImpl eStorage = new EmployeeStorageImpl(conStr, user, pass);
-        BookingStorageImpl bStorage = new BookingStorageImpl(conStr, user, pass);
+        CustomerStorageImpl customerStorage = new CustomerStorageImpl(conStr, user, pass);
+        EmployeeStorageImpl employeeStorage = new EmployeeStorageImpl(conStr, user, pass);
+        BookingStorageImpl bookingStorage = new BookingStorageImpl(conStr, user, pass);
         createFakeEmployees(10);
-
+        createFakeCostumers(5);
+    }
+    public static void createFakeCostumers(int amount) throws SQLException {
+        CustomerStorageImpl customerStorage = new CustomerStorageImpl(conStr, user, pass);
+        Faker faker = new Faker();
+        for (int i = 0; i < amount; i++) {
+            CustomerCreation creation = new CustomerCreation(faker.name().firstName(), faker.name().lastName(), faker.phoneNumber().subscriberNumber(8), faker.date().birthday());
+            customerStorage.createCustomer(creation);
+        }
     }
 
     public static void createFakeEmployees(int amount) throws SQLException {
-        EmployeeStorageImpl eStorage = new EmployeeStorageImpl(conStr, user, pass);
+        EmployeeStorageImpl employeeStorage = new EmployeeStorageImpl(conStr, user, pass);
         Faker faker = new Faker();
         for (int i = 0; i < amount; i++) {
-            EmployeeCreation c = new EmployeeCreation(faker.name().firstName(), faker.name().lastName());
-            eStorage.createEmployee(c);
+            EmployeeCreation creation = new EmployeeCreation(faker.name().firstName(), faker.name().lastName());
+            employeeStorage.createEmployee(creation);
         }
     }
 

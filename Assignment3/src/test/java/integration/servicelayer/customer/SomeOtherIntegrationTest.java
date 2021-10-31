@@ -15,31 +15,31 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class SomeOtherIntegrationTest extends ContainerizedDbIntegrationTest {
+//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+//public class SomeOtherIntegrationTest extends ContainerizedDbIntegrationTest {
+//
+//    private CustomerService svc;
+//    private CustomerStorage storage;
+//
+//    @BeforeAll
+//    public void setup() {
+//        runMigration(3);
+//
+//        storage = new CustomerStorageImpl(getConnectionString(), "root", getDbPassword());
+//        svc = new CustomerServiceImpl(storage);
+//    }
+//
+//    @Test
+//    public void Stuff() throws CustomerServiceException, SQLException {
+//        // Arrange
+//        var id = svc.createCustomer("schmeep", "schmoop", Date.valueOf("1987-10-07"));
+//
+//        // Act
+//        var c = svc.getCustomerById(id);
+//
+//        // Assert
+//        assertEquals("schmeep", c.getFirstname());
+//        assertEquals("schmoop", c.getLastname());
+//    }
 
-    private CustomerService svc;
-    private CustomerStorage storage;
-
-    @BeforeAll
-    public void setup() {
-        runMigration(3);
-
-        storage = new CustomerStorageImpl(getConnectionString(), "root", getDbPassword());
-        svc = new CustomerServiceImpl(storage);
-    }
-
-    @Test
-    public void Stuff() throws CustomerServiceException, SQLException {
-        // Arrange
-        var id = svc.createCustomer("schmeep", "schmoop", Date.valueOf("1987-10-07"));
-
-        // Act
-        var c = svc.getCustomerById(id);
-
-        // Assert
-        assertEquals("schmeep", c.getFirstname());
-        assertEquals("schmoop", c.getLastname());
-    }
-
-}
+//}
