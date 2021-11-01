@@ -1,4 +1,4 @@
-package unit.servicelayer.booking;
+package mock.servicelayer.booking;
 
 import com.github.javafaker.Faker;
 import datalayer.booking.BookingStorage;
@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("unit")
-public class BookingTest {
+public class BookingMockTest {
 
     private BookingService bookingService;
     private BookingStorage storageMock;

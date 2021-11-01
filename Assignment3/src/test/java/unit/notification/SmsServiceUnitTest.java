@@ -1,4 +1,4 @@
-package unit.servicelayer.notification;
+package unit.notification;
 
 import dto.SmsMessage;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("unit")
-public class SmsServiceTest {
+public class SmsServiceUnitTest {
     private SmsService smsService;
 
     @BeforeAll

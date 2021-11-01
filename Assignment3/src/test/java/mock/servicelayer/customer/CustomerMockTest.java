@@ -1,4 +1,4 @@
-package unit.servicelayer.customer;
+package mock.servicelayer.customer;
 
 import com.github.javafaker.Faker;
 import datalayer.customer.CustomerStorage;
@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("unit")
-public class CustomerTest {
+public class CustomerMockTest {
     private CustomerService customerService;
     private CustomerStorage storageMock;
     private Faker faker;
