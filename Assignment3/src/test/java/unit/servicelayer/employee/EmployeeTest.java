@@ -28,7 +28,7 @@ public class EmployeeTest {
     }
 
     @Test
-    public void TestCallStorageWhenCreatingCustomer() throws SQLException, EmployeeServiceException {
+    public void TestCallStorageWhenCreatingEmployee() throws SQLException, EmployeeServiceException {
         // Arrange
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
