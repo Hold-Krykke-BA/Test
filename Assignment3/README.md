@@ -29,9 +29,10 @@ We followed the provided code in the assignment repository ([commit](https://git
 - Or test the tests found in [src/test](https://github.com/Hold-Krykke-BA/Test/tree/main/Assignment3/src/test/java)
 
 ## Result
-```diff
-- TODO
-```
+| Our tests so far:  |      Database and generated test database:     | 
+|----------|:-------------:|
+| ![image](https://user-images.githubusercontent.com/35559774/139647194-1e34c1c6-9532-4bd1-be1e-cc2bf3b12223.png)  |  ![image](https://user-images.githubusercontent.com/35559774/139647349-cea1078e-0a35-4440-a037-8f6130c4044b.png) |
+
 
 ## Reflection
 ```diff
