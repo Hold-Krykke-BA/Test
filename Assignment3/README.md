@@ -31,8 +31,8 @@ We followed the provided code in the assignment repository ([commit](https://git
 ## Result
 | Our tests so far:  |      Database and generated test database:     | 
 |----------|:-------------:|
-| ![image](https://user-images.githubusercontent.com/35559774/139649941-e6a34da8-9c2c-41e4-98d6-9ad5f2b9c1cf.png)
-  |  ![image](https://user-images.githubusercontent.com/35559774/139647349-cea1078e-0a35-4440-a037-8f6130c4044b.png) |  
+|![image](https://user-images.githubusercontent.com/35559774/139650032-b5460836-d4c5-4902-bc86-9e2380df312d.png)
+|  ![image](https://user-images.githubusercontent.com/35559774/139647349-cea1078e-0a35-4440-a037-8f6130c4044b.png) |  
 
 ## Reflection
 - The Flyway framework was difficult to get working properly, but we managed to do it at the end. When it works, it's a nice framework for creating integration tests
