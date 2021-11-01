@@ -37,7 +37,7 @@ public class EmployeeTest {
         // Assert
         verify(storageMock, times(1))
                 .createEmployee(
-                        argThat(x -> x.firstname.equals(firstName) &&
-                                x.lastname.equals(lastName)));
+                        argThat(x -> x.getFirstname().equals(firstName) &&
+                                x.getLastname().equals(lastName)));
     }
 }

@@ -39,7 +39,7 @@ public class CustomerTest {
         // Assert
         verify(storageMock, times(1))
                 .createCustomer(
-                        argThat(x -> x.firstname.equals(firstName) &&
-                                x.lastname.equals(lastName) && x.phoneNumber.equals(phone) && x.birthday.equals(birthdate)));
+                        argThat(x -> x.getFirstname().equals(firstName) &&
+                                x.getLastname().equals(lastName) && x.getPhoneNumber().equals(phone) && x.getBirthday().equals(birthdate)));
     }
 }

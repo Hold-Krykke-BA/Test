@@ -46,6 +46,6 @@ public class BookingTest {
         verify(storageMock, times(1))
                 .createBooking(
                         argThat(x -> x.getCustomerId() == customerID &&
-                                x.getEmployeeId() == employeeID));
+                                x.getEmployeeId() == employeeID && x.getDate().equals(date) && x.getStart().equals(start) && x.getEnd().equals(end)));
     }
 }
