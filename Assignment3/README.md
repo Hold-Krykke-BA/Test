@@ -7,40 +7,26 @@
 ## [Assignment description](./assignment-03.pdf)
 
 We understood the task as:
-- Implement missing classes based on the available interfaces
-- Create a MySQL database containing the data types using the given scripts
+- Implement missing classes, interfaces and methods
+- Create a containerized MySQL database containing the data types using the given scripts
+  - Create a migration to add the column `phonenumber` on customer 
 - Create connection between the application and the database
-- Test the system with the knowledge we have so far
+- Test the system with the with unit and integration tests
 
-Optionally, peer programming can be utilized.
+## Process and stategy
+We discussed whether to split up the assignment or do it in pairs. We decided that this was a good opportunity for peerprogramming, which we then did using screensharing on discord and teamviewer.  
+We did not follow TDD in thsi assignment, as there were wuite many problems with the required frameworks for testing. But since the program itself was wuite simple we weren't that worried about the "big bang" testing strategy, which is why we ended up using that. Had we had the knowledge we have now regarding the frameworks, we would be more confident in following the TDD stragey. 
 
-## Process
-```diff
-- TODO
-```
-
-We discussed whether to split up the assignment or do it in pairs. As we are only two members, ...
-
-We wanted to cover most, or all, of the strategies we have learned so far in class. Therefore, this became our strategy.
-
-### Strategy
-```diff
-- TODO
-```
-
-- Utilize pair programming in part X of the assignment
-- Do some Test-Driven development
-- Unit Test
-- Integration Test
-- Complete tests using [Bottom up, Top down, Big Bang, Sandwich]
-- ?
 
 ### Setup
 We followed the provided code in the assignment repository ([commit](https://github.com/Hold-Krykke-BA/Test/commit/1a21b64df26c98dc6cb395f8d8ce458771d56ed5#diff-bbd6f8cf2e618b335ebcaa545470413e4db5304dc5ba229858d647983c8061d6)) and coded in Java. We used the supplied dependencies found in the `pom.xml` file but updated them as we found fit.
 
-```diff
-- actually do this
-```
+**To run our project:**  
+- Clone or download this repository
+- Pull this docker image 'docker run -d --name mysql-test-db -e MYSQL_ROOT_PASSWORD=holdkrykke -p 3307:3306 mysql'
+- Run [this script](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment3/scripts/ddl.sql) in the database
+- You can then run the project from the [main.java](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment3/src/main/java/main/Main.java)
+- Or test the tests found in [src/test](https://github.com/Hold-Krykke-BA/Test/tree/main/Assignment3/src/test/java)
 
 ## Result
 ```diff
