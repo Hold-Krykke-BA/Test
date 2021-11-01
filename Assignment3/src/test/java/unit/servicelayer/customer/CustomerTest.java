@@ -40,6 +40,6 @@ public class CustomerTest {
         verify(storageMock, times(1))
                 .createCustomer(
                         argThat(x -> x.firstname.equals(firstName) &&
-                                x.lastname.equals(lastName)));
+                                x.lastname.equals(lastName) && x.phoneNumber.equals(phone) && x.birthday.equals(birthdate)));
     }
 }
