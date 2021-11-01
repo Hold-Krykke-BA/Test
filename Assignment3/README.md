@@ -15,7 +15,7 @@ We understood the task as:
 
 ## Process and stategy
 We discussed whether to split up the assignment or do it in pairs. We decided that this was a good opportunity for peerprogramming, which we then did using screensharing on discord and teamviewer.  
-We did not follow TDD in thsi assignment, as there were wuite many problems with the required frameworks for testing. But since the program itself was wuite simple we weren't that worried about the "big bang" testing strategy, which is why we ended up using that. Had we had the knowledge we have now regarding the frameworks, we would be more confident in following the TDD stragey. 
+We did not follow TDD in this assignment, as there were wuite many problems with the required frameworks for testing. But since the program itself was wuite simple we weren't that worried about the "big bang" testing strategy, which is why we ended up using that. Had we had the knowledge we have now regarding the frameworks, we would be more confident in following the TDD stragey. 
 
 
 ### Setup
