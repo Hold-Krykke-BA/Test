@@ -31,9 +31,9 @@ We followed the provided code in the assignment repository ([commit](https://git
 ## Result
 | Our tests so far:  |      Database and generated test database:     | 
 |----------|:-------------:|
-| ![image](https://user-images.githubusercontent.com/35559774/139647194-1e34c1c6-9532-4bd1-be1e-cc2bf3b12223.png)  |  ![image](https://user-images.githubusercontent.com/35559774/139647349-cea1078e-0a35-4440-a037-8f6130c4044b.png) |
-
+| ![image](https://user-images.githubusercontent.com/35559774/139647194-1e34c1c6-9532-4bd1-be1e-cc2bf3b12223.png)  |  ![image](https://user-images.githubusercontent.com/35559774/139647349-cea1078e-0a35-4440-a037-8f6130c4044b.png) |  
 
 ## Reflection
 - The Flyway framework was difficult to get working properly, but we managed to do it at the end. When it works, it's a nice framework for creating integration tests
 - The assignment was a little unclear, especially regarding what functionality was to be tested. We followed the supplied examples in the code that was provided
+- We used the frameworks `javafaker` and `mockito` for the tests that needed fake data or mocked classes and both worked very well and are frameworks we will be using form now on in `Java` projects.
