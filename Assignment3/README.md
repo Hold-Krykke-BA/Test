@@ -29,7 +29,7 @@ We followed the provided code in the assignment repository ([commit](https://git
 - Or test the tests found in [src/test](https://github.com/Hold-Krykke-BA/Test/tree/main/Assignment3/src/test/java)
 
 ## Result
-| Our tests so far:  |      Database and generated test database:     | 
+| Implemented tests  |      Database and generated test database     | 
 |----------|:-------------:|
 |![image](https://user-images.githubusercontent.com/35559774/139650032-b5460836-d4c5-4902-bc86-9e2380df312d.png)|![image](https://user-images.githubusercontent.com/35559774/139650116-f63cb086-d69b-429b-a2d9-dc541e49b6b8.png)|  
 
