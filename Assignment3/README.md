@@ -23,7 +23,7 @@ We followed the provided code in the assignment repository ([commit](https://git
 
 **To run our project:**  
 - Clone or download this repository
-- Pull this docker image 'docker run -d --name mysql-test-db -e MYSQL_ROOT_PASSWORD=holdkrykke -p 3307:3306 mysql'
+- Pull this docker image `docker run -d --name mysql-test-db -e MYSQL_ROOT_PASSWORD=holdkrykke -p 3307:3306 mysql`
 - Run [this script](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment3/scripts/ddl.sql) in the database
 - You can then run the project from the [main.java](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment3/src/main/java/main/Main.java)
 - Or test the tests found in [src/test](https://github.com/Hold-Krykke-BA/Test/tree/main/Assignment3/src/test/java)
