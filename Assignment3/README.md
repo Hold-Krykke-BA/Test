@@ -35,13 +35,5 @@ We followed the provided code in the assignment repository ([commit](https://git
 
 
 ## Reflection
-```diff
-- TODO
-```
-
-This worked well
-- ?
-
-That not so much
-- The assignment was a bit unclear
-- ?
+- The Flyway framework was difficult to get working properly, but we managed to do it at the end. When it works, it's a nice framework for creating integration tests
+- The assignment was a little unclear, especially regarding what functionality was to be tested. We followed the supplied examples in the code that was provided
