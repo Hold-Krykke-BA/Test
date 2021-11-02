@@ -1,4 +1,4 @@
-package mock.servicelayer.booking;
+package unit.servicelayer.booking;
 
 import com.github.javafaker.Faker;
 import datalayer.booking.BookingStorage;

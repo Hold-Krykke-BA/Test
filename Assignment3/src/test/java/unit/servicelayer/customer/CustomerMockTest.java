@@ -1,4 +1,4 @@
-package mock.servicelayer.customer;
+package unit.servicelayer.customer;
 
 import com.github.javafaker.Faker;
 import datalayer.customer.CustomerStorage;

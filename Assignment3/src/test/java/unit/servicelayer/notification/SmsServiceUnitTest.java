@@ -1,4 +1,4 @@
-package unit.notification;
+package unit.servicelayer.notification;
 
 import dto.SmsMessage;
 import org.junit.jupiter.api.BeforeAll;
