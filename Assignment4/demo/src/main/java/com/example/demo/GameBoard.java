@@ -9,7 +9,6 @@ public class GameBoard {
     private static Random random = new Random();
     private static final int LOWER_LIMIT = 1, UPPER_LIMIT = 9;
 
-    //private static int moves; //instead use {player}Positions.size()
     enum USERS {COMPUTER, PLAYER}
 
     public GameBoard() {
@@ -47,16 +46,25 @@ public class GameBoard {
 
 
     public static void main(String[] args) {
-        System.out.println("Starting game..");
+        System.out.println("Starting a game of Tic Tac Toe. Player plays as 'X', computer as 'O'.");
         GameBoard ttt = new GameBoard();
         ttt.playGame();
     }
 
-    //todo
     //Play game "main" with gameStatus() check
     private void playGame() {
-        //pick first turn
-        //while !notFinished -> swap turns
+        boolean playerStart = random.nextBoolean();
+        System.out.println("Picking starting position at random. " + (playerStart ? "Player starts" : "Computer starts"));
+
+        while (true) { //Runs until System.exit in gameStatus();
+            if (playerStart) {
+                playerTurn();
+                computerTurn();
+            } else {
+                computerTurn();
+                playerTurn();
+            }
+        }
     }
 
 
@@ -87,13 +95,13 @@ public class GameBoard {
                 in.next();
             }
         }
-        System.out.println(String.format("Player picked %d", playerPosition));
+        System.out.println(String.format("--------------\nPlayer picked %d\n--------------", playerPosition));
 
         //Place position
         placePosition(playerPosition, USERS.PLAYER);
 
-        //Print board
-        printGameBoard();
+        //Check status and print board
+        gameStatus();
     }
 
     //Computers turn using random
@@ -107,26 +115,79 @@ public class GameBoard {
         //Place position
         placePosition(computerPosition, USERS.COMPUTER);
 
-        //Print board
-        printGameBoard();
+        //Check status and print board
+        gameStatus();
     }
 
     //Generic "placement" method
-    //todo select symbol
     //base on enum users
     //Switch and swap on pos to match gameboard indices (0-9 not equal to indices)
     private void placePosition(int pos, USERS userType) {
+        char symbol;
+
+        if (userType == USERS.PLAYER) {
+            symbol = 'X';
+            playerPositions.add(pos);
+        } else {
+            symbol = 'O';
+            computerPositions.add(pos);
+        }
+
+        switch (pos) {
+            case 1:
+                board[0][0] = symbol;
+                break;
+            case 2:
+                board[0][2] = symbol;
+                break;
+            case 3:
+                board[0][4] = symbol;
+                break;
+            case 4:
+                board[2][0] = symbol;
+                break;
+            case 5:
+                board[2][2] = symbol;
+                break;
+            case 6:
+                board[2][4] = symbol;
+                break;
+            case 7:
+                board[4][0] = symbol;
+                break;
+            case 8:
+                board[4][2] = symbol;
+                break;
+            case 9:
+                board[4][4] = symbol;
+                break;
+            default: //Should never hit here as we validate before
+                System.out.println("Please Enter a valid position");
+                break;
+        }
 
     }
 
-    //todo
     //Win check
     //1: player wins
     //2: computer wins
     //0: tie
     //-1: unfinished
-    private int gameStatus() {
-        return -1;
+    private void gameStatus() {
+        printGameBoard();
+        for (List position : winningPositions) {
+            if (playerPositions.containsAll(position)) {
+                System.out.println("Game over! Player wins.");
+                System.exit(0);
+            } else if (computerPositions.containsAll(position)) {
+                System.out.println("Game over! Computer wins.");
+                System.exit(0);
+            }
+        }
+        if (playerPositions.size() + computerPositions.size() == 9) {
+            System.out.println("Game over! It's a tie.");
+            System.exit(0);
+        }
     }
 
 }
