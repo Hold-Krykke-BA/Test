@@ -72,7 +72,20 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.pitest</groupId>
+                <groupId>com.github.spotbugs</groupId> <!-- Also available as an IntelliJ plugin -->
+                <artifactId>spotbugs-maven-plugin</artifactId> <!-- https://spotbugs.readthedocs.io/en/latest/maven.html -->
+                <version>4.4.2.2</version>
+                <dependencies>
+                    <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+                    <dependency>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs</artifactId>
+                        <version>4.4.2</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId> <!-- https://pitest.org/quickstart/maven/ -->
                 <artifactId>pitest-maven</artifactId>
                 <version>1.7.3</version>
             </plugin>
