@@ -5,7 +5,7 @@ import java.util.*;
 public class GameBoard {
     private char[][] board;
     private static List<List> winningPositions = new ArrayList<>();
-    private static List<Integer> playerPositions = new ArrayList<>(), computerPositions = new ArrayList<>();
+    private List<Integer> playerPositions = new ArrayList<>(), computerPositions = new ArrayList<>();
     private static Random random = new Random();
     private static final int LOWER_LIMIT = 1, UPPER_LIMIT = 9;
 
@@ -84,7 +84,7 @@ public class GameBoard {
      * @param computerPositions
      * @param position
      */
-    public void playerTurn(List<Integer> playerPositions, List<Integer> computerPositions, int... position) {
+    public boolean playerTurn(List<Integer> playerPositions, List<Integer> computerPositions, int... position) {
         Scanner in = new Scanner(System.in);
         int playerPosition = position.length > 0 ? position[0] : -1; //Use method supplied position or start out of bounds.
 
@@ -94,19 +94,24 @@ public class GameBoard {
                 !(playerPosition >= LOWER_LIMIT && playerPosition <= UPPER_LIMIT)) {
             try {
                 System.out.print("Please enter a valid position (1-9): ");
-                playerPosition = in.nextInt();
+                return false; //could throw exception
+                //playerPosition = in.nextInt();
+
             } catch (InputMismatchException e) {
                 System.out.println("Input not allowed, try again.");
-                in.next();
+                return false;
+                //in.next();
             }
         }
         System.out.println(String.format("--------------\nPlayer picked %d\n--------------", playerPosition));
 
         //Place position
-        placePosition(playerPosition, USERS.PLAYER, this.board);
+        boolean positionResult = placePosition(playerPosition, USERS.PLAYER, this.board);
+        if (!positionResult) return false; //Something went wrong, exit with false
 
         //Check status and print board
         gameStatus();
+        return true;
     }
 
     /**
@@ -116,7 +121,7 @@ public class GameBoard {
      * @param computerPositions List of computerPositions
      * @param position          optional position to use. If invalid, the program will find another one.
      */
-    public void computerTurn(List<Integer> playerPositions, List<Integer> computerPositions, int... position) {
+    public boolean computerTurn(List<Integer> playerPositions, List<Integer> computerPositions, int... position) {
         int computerPosition = position.length > 0 ? position[0] : random.nextInt(9) + 1; //Use supplied optional position or get value between 1 and 9
         while (playerPositions.contains(computerPosition) || computerPositions.contains(computerPosition)) {
             computerPosition = random.nextInt(9) + 1; //redraw value until valid
@@ -124,10 +129,12 @@ public class GameBoard {
         System.out.println(String.format("Computer picked %d", computerPosition));
 
         //Place position
-        placePosition(computerPosition, USERS.COMPUTER, this.board);
+        boolean positionResult = placePosition(computerPosition, USERS.COMPUTER, this.board);
+        if (!positionResult) return false; //Something went wrong, exit with false
 
         //Check status and print board
         gameStatus();
+        return true;
     }
 
     //Generic "placement" method
@@ -137,11 +144,11 @@ public class GameBoard {
     /**
      * Generic placement method based on userType. Places a position between 1-9 on the board at the correct indices as limited by the game rules.
      *
-     * @param pos the position to place on
+     * @param pos      the position to place on
      * @param userType the @userType to use {@link USERS}
-     * @param board the board to place the position on.
+     * @param board    the board to place the position on.
      */
-    public void placePosition(int pos, USERS userType, char[][] board) {
+    public boolean placePosition(int pos, USERS userType, char[][] board) {
         char symbol;
 
         if (userType == USERS.PLAYER) {
@@ -181,9 +188,10 @@ public class GameBoard {
                 board[4][4] = symbol;
                 break;
             default: //Should never hit here as we validate before
-                System.out.println("Please Enter a valid position");
-                break;
+                System.out.println("Please enter a valid position");
+                return false;
         }
+        return true;
     }
 
     //Win check
@@ -220,23 +228,23 @@ public class GameBoard {
         return winningPositions;
     }
 
-    public static void setWinningPositions(List<List> winningPositions) {
-        GameBoard.winningPositions = winningPositions;
+    public void setWinningPositions(List<List> winningPositions) {
+        this.winningPositions = winningPositions;
     }
 
     public List<Integer> getPlayerPositions() {
         return playerPositions;
     }
 
-    public static void setPlayerPositions(List<Integer> playerPositions) {
-        GameBoard.playerPositions = playerPositions;
+    public void setPlayerPositions(List<Integer> playerPositions) {
+        this.playerPositions = playerPositions;
     }
 
     public List<Integer> getComputerPositions() {
         return computerPositions;
     }
 
-    public static void setComputerPositions(List<Integer> computerPositions) {
-        GameBoard.computerPositions = computerPositions;
+    public void setComputerPositions(List<Integer> computerPositions) {
+        this.computerPositions = computerPositions;
     }
 }
