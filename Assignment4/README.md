@@ -26,6 +26,20 @@
 
 ## Result
 
+```diff
+- RUNI TODO NOTES
+- For ReadMe:
+- Jacoco screenshot
+- PiTest screenshot
+- Spotbugs screenshot of gui
+- Mention SpotBugs both as maven dependency & IntelliJ plugin
+- Mention before/after DI - Not testable vs testable
+- https://github.com/Hold-Krykke-BA/Test/blob/d925bcdd6c3f1553f7c0d22dd6dba4d1bf48d380/Assignment4/demo/src/main/java/com/example/demo/GameBoard.java
+
+Could have tested more cases - like winning, losing & tying for the win, if dependencies were not created correctly (they always should be, per default, anyways)
+
+``` 
+
 ### Part one - Mockito Powerups
 
 - How do you verify that a mock was called?  
