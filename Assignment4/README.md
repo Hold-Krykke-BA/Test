@@ -106,6 +106,10 @@ This is not something we have worked much with, but here are a couple of ways. I
 - How do you use a predicate to verify the properties of the arguments given to a call to the mock?  
 This would be the same way as described above in our 3rd assignment, using `argThat(x -> x.foo == bar)`
 
+### Part two - Tic Tac Toe
+```diff
+- TODO
+```
 
 ## Reflection
 ```diff
