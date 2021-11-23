@@ -44,7 +44,6 @@ public class GameBoard {
         winningPositions.add(rightDiagonal);
     }
 
-
     public static void main(String[] args) {
         System.out.println("Starting a game of Tic Tac Toe. Player plays as 'X', computer as 'O'.");
         GameBoard ttt = new GameBoard();
@@ -58,11 +57,11 @@ public class GameBoard {
 
         while (true) { //Runs until System.exit in gameStatus();
             if (playerStart) {
-                playerTurn();
-                computerTurn();
+                playerTurn(playerPositions, computerPositions);
+                computerTurn(playerPositions, computerPositions);
             } else {
-                computerTurn();
-                playerTurn();
+                computerTurn(playerPositions, computerPositions);
+                playerTurn(playerPositions, computerPositions);
             }
         }
     }
@@ -78,10 +77,16 @@ public class GameBoard {
     }
 
 
-    //Player turn using scanner
-    private void playerTurn() {
+    /**
+     * Let the player take a turn. Optionally supply a position manually or supply one using the input scanner.
+     *
+     * @param playerPositions
+     * @param computerPositions
+     * @param position
+     */
+    public void playerTurn(List<Integer> playerPositions, List<Integer> computerPositions, int... position) {
         Scanner in = new Scanner(System.in);
-        int playerPosition = -1;
+        int playerPosition = position.length > 0 ? position[0] : -1; //Use method supplied position or start out of bounds.
 
         //Get position until valid (Not taken and between limits)
         while (playerPositions.contains(playerPosition) ||
@@ -98,22 +103,28 @@ public class GameBoard {
         System.out.println(String.format("--------------\nPlayer picked %d\n--------------", playerPosition));
 
         //Place position
-        placePosition(playerPosition, USERS.PLAYER);
+        placePosition(playerPosition, USERS.PLAYER, this.board);
 
         //Check status and print board
         gameStatus();
     }
 
-    //Computers turn using random
-    private void computerTurn() {
-        int computerPosition = random.nextInt(9) + 1; //Get value between 1 and 9
+    /**
+     * Let the computer take its turn. Optionally supply a position manually or the program will find one.
+     *
+     * @param playerPositions   List of playerPositions
+     * @param computerPositions List of computerPositions
+     * @param position          optional position to use. If invalid, the program will find another one.
+     */
+    public void computerTurn(List<Integer> playerPositions, List<Integer> computerPositions, int... position) {
+        int computerPosition = position.length > 0 ? position[0] : random.nextInt(9) + 1; //Use supplied optional position or get value between 1 and 9
         while (playerPositions.contains(computerPosition) || computerPositions.contains(computerPosition)) {
             computerPosition = random.nextInt(9) + 1; //redraw value until valid
         }
         System.out.println(String.format("Computer picked %d", computerPosition));
 
         //Place position
-        placePosition(computerPosition, USERS.COMPUTER);
+        placePosition(computerPosition, USERS.COMPUTER, this.board);
 
         //Check status and print board
         gameStatus();
@@ -122,7 +133,15 @@ public class GameBoard {
     //Generic "placement" method
     //base on enum users
     //Switch and swap on pos to match gameboard indices (0-9 not equal to indices)
-    private void placePosition(int pos, USERS userType) {
+
+    /**
+     * Generic placement method based on userType. Places a position between 1-9 on the board at the correct indices as limited by the game rules.
+     *
+     * @param pos the position to place on
+     * @param userType the @userType to use {@link USERS}
+     * @param board the board to place the position on.
+     */
+    public void placePosition(int pos, USERS userType, char[][] board) {
         char symbol;
 
         if (userType == USERS.PLAYER) {
@@ -165,7 +184,6 @@ public class GameBoard {
                 System.out.println("Please Enter a valid position");
                 break;
         }
-
     }
 
     //Win check
@@ -190,4 +208,35 @@ public class GameBoard {
         }
     }
 
+    public char[][] getBoard() {
+        return board;
+    }
+
+    public void setBoard(char[][] board) {
+        this.board = board;
+    }
+
+    public List<List> getWinningPositions() {
+        return winningPositions;
+    }
+
+    public static void setWinningPositions(List<List> winningPositions) {
+        GameBoard.winningPositions = winningPositions;
+    }
+
+    public List<Integer> getPlayerPositions() {
+        return playerPositions;
+    }
+
+    public static void setPlayerPositions(List<Integer> playerPositions) {
+        GameBoard.playerPositions = playerPositions;
+    }
+
+    public List<Integer> getComputerPositions() {
+        return computerPositions;
+    }
+
+    public static void setComputerPositions(List<Integer> computerPositions) {
+        GameBoard.computerPositions = computerPositions;
+    }
 }
