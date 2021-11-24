@@ -5,36 +5,42 @@
 - _[Camilla Jenny Valerius Staunstrup - cph-cs340](https://github.com/Castau)_
 
 ## [Assignment description](https://github.com/Hold-Krykke-BA/Test/blob/main/Assignment4/Assignment4.pdf)
-```diff
--TODO
-```
+Answer questions about Mockito (with code examples) and complete a TDD exercise. Include three tools (coverage, mutation testing, static analysis).
 
 ## Process and stategy
-```diff
--TODO
-```
+We first experimented with the JSON parser, but changed our mind, as we did not want to create all the code required to fully support the RFC.  
+Instead we chose the Tic Tac Toe game.
+
+We started off with the usual TDD strategy for the GameBoard class but found it more relevant to use some void methods for some parts and therefore ended up with some rather untestable methods. In favor of the assignment we turned it around to a more testable version with dependencies and return types. That version can be found in the main branch you are looking at now.
+
+The original clean version can be found [here](https://github.com/Hold-Krykke-BA/Test/blob/d925bcdd6c3f1553f7c0d22dd6dba4d1bf48d380/Assignment4/demo/src/main/java/com/example/demo/GameBoard.java).
 
 ### Setup
-```diff
--TODO
-```
+Install the dependencies using Maven.
 
 **To run our project:**  
-```diff
--TODO
-```
+1. Install dependencies from POM.xml.
+2. Run the main method in `GameBoard.java` to play.
+3. Run tests in `GameBoardTest.java`.
+
+The required tools were also added as Maven dependencies.
+- JaCoCo
+- Pitest
+- SpotBugs (Also available as an IntelliJ plugin)
+
+As they are Maven plugins they can be run during lifecycles or on their own.
+
+![image](https://user-images.githubusercontent.com/37186286/143281853-fd377f45-6a98-4fa9-bada-2a5285adb620.png)
+
 
 ## Result
 
 ```diff
 - RUNI TODO NOTES
-- For ReadMe:
 - Jacoco screenshot
 - PiTest screenshot
 - Spotbugs screenshot of gui
-- Mention SpotBugs both as maven dependency & IntelliJ plugin
 - Mention before/after DI - Not testable vs testable
-- https://github.com/Hold-Krykke-BA/Test/blob/d925bcdd6c3f1553f7c0d22dd6dba4d1bf48d380/Assignment4/demo/src/main/java/com/example/demo/GameBoard.java
 
 Could have tested more cases - like winning, losing & tying for the win, if dependencies were not created correctly (they always should be, per default, anyways)
 
