@@ -35,17 +35,6 @@ As they are Maven plugins they can be run during lifecycles or on their own.
 
 ## Result
 
-```diff
-- RUNI TODO NOTES
-- Jacoco screenshot
-- PiTest screenshot
-- Spotbugs screenshot of gui
-- Mention before/after DI - Not testable vs testable
-
-Could have tested more cases - like winning, losing & tying for the win, if dependencies were not created correctly (they always should be, per default, anyways)
-
-``` 
-
 ### Part one - Mockito Powerups
 
 - How do you verify that a mock was called?  
@@ -113,14 +102,32 @@ This is not something we have worked much with, but here are a couple of ways. I
 This would be the same way as described above in our 3rd assignment, using `argThat(x -> x.foo == bar)`
 
 ### Part two - Tic Tac Toe
-```diff
-- TODO
-```
+
+As mentioned above we have two versions of the code, one testable and one not so much.
+
+The results are in the `demo` repository here.
+
+#### Code coverage - JaCoCo
+Not suprising but some methods could not be tested obviously. These could maybe have been marked to be ignored by JaCoCo?
+![image](https://user-images.githubusercontent.com/37186286/143286569-32aa6395-f63b-4502-8a14-994b0807e59a.png)
+
+#### Mutation testing - Pitest
+
+screenshot here
+
+#### Spotbugs
+This was used both as a GUI report and as an IntelliJ plugin.
+
+screenshot here
 
 ## Reflection
-```diff
--TODO
-```
+TDD proved useful in regards to creating an overview and insight into the problem at hand.
+
+We wanted to solve the problem with non-testable code (void methods, no direct dependencies/method params) and that caused some issues.
+
+We could have tested more cases - like winning, losing, tying for the win and if dependencies were not created correctly (they always should be, per default, anyways).
+
+
 ## Resources
 - https://stackoverflow.com/questions/3555472/mockito-verify-method-arguments
 - 
