@@ -113,7 +113,7 @@ Not suprising but some methods could not be tested obviously. These could maybe 
 
 #### Mutation testing - Pitest
 
-screenshot here
+![image](https://user-images.githubusercontent.com/37186286/143289472-c36877d2-0437-452d-bf40-922bc380f2a1.png)
 
 #### Spotbugs
 This was used both as a GUI report and as an IntelliJ plugin.
