@@ -118,7 +118,7 @@ Not suprising but some methods could not be tested obviously. These could maybe 
 #### Spotbugs
 This was used both as a GUI report and as an IntelliJ plugin.
 
-screenshot here
+![image](https://user-images.githubusercontent.com/37186286/143289921-c817e404-2751-44a7-8344-61908655d3af.png)
 
 ## Reflection
 TDD proved useful in regards to creating an overview and insight into the problem at hand.
@@ -130,4 +130,3 @@ We could have tested more cases - like winning, losing, tying for the win and if
 
 ## Resources
 - https://stackoverflow.com/questions/3555472/mockito-verify-method-arguments
-- 
