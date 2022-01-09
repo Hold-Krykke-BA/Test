@@ -13,3 +13,7 @@ Repo for shared test assignments
 - [Assignment 2](/Assignment2)
 - [Assignment 3](/Assignment3)
 - [Assignment 4](/Assignment4)
+
+Relevant repositories with test
+- [Danlp - Cypress](https://github.com/Castau/DaNLP_demo_frontend/tree/master/cypress/integration/danlp_tests)
+- [Semester Project - REST](https://github.com/Hold-Krykke/3SemProject_BackEnd/tree/master/src/test/java/rest)
